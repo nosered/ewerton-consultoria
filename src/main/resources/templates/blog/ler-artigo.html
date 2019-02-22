@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt"
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{blog/layout/base}">
+
+<body>
+	<div class="col-md-8" layout:fragment="content">
+	    <div class="post-wrap">
+	        <p th:text="${#temporals.format(artigo.dataPublicacao, 'd / MM / yyyy')}" class="small"></p>
+	        <a href="#">
+	            <h2 class="media-heading"><strong><span th:text="${#strings.capitalize(artigo.titulo)}"></span></strong></h2>
+	        </a>
+	
+	        <ul class="list-inline metas pull-left"> <!-- post metas -->
+	            <li>Por: <ins><span th:text="${artigo.usuario.nome}"></span></ins></li> <!-- meta author -->
+	            <li><a href="#comments" class="scroll">1 Commentário</a></li> <!-- meta comments -->
+	        </ul>
+	
+	        <img th:src="${artigo.thumbnail}" width="800" height="500" class="img-responsive" alt="...">
+	
+	        <div th:utext="${artigo.texto}"></div>
+	
+	        <br>
+	        <br>
+	        
+	        <!--p><strong>Tags:</strong></p>
+	        <ul class="list-inline meta-tags">
+	            <li><a href="#">web design</a></li>
+	            <li><a href="#">business</a></li>
+	            <li><a href="#">psd design</a></li>
+	            <li><a href="#">themeforest</a></li>
+	            <li><a href="#">wordpress</a></li>
+	            <li><a href="#">responsive</a></li>
+	            <li><a href="#">bootstrap</a></li>
+	        </ul-->
+	    </div><!-- end Post Wrapper -->
+	
+	    <!--div class="media post-author">
+	        <div class="media-left media-middle">
+	            <a href="#">
+	              <img class="media-object" src="http://placehold.it/90x90" alt="...">
+	            </a>
+	        </div>
+	        <div class="media-body">
+	            <h5 class="media-heading">Por <a href="#" th:text="${artigo.usuario.nome}"></a></h5>
+	            Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
+	        </div>
+	    </div-->
+	
+	    <div id="comments" class="comment">
+	        <h4 class="text-uppercase">Comentários <span class="comments">(1)</span></h4>
+	        <div class="media comment-block">
+	            <div class="media-left media-top">
+	                <a href="#">
+	                  <img class="media-object" src="http://placehold.it/90x90" alt="...">
+	                </a>
+	            </div>
+	            <div class="media-body">
+	                <small class="pull-right">01 / 01 / 2019</small>
+	                <h5 class="media-heading">Por <a href="#"><ins>Usuário anônimo</ins></a></h5> 
+	                <div class="clearfix"></div>
+	                Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
+	                <div class="clearfix"></div>
+	                <a href="#" class="pull-right text-uppercase">Responder</a>
+	            </div>
+	        </div>
+	    </div>
+	
+	    <div class="comment">
+	        <h4 class="text-uppercase">Deixe um comentário</h4>
+	        <form id="contact-form" class="form">
+	            <div class="row">
+	                <div class="col-md-6">
+	                    <input type="text" class="form-control" placeholder="Seu nome">
+	                </div>
+	                <div class="col-md-6">
+	                    <input type="text" class="form-control" placeholder="Seu e-mail">
+	                </div>
+	            </div>
+	            <textarea class="form-control" rows="6" placeholder="Seu comentário..."></textarea>
+	            <button type="submit" class="btn btn-default en-btn">Enviar comentário</button>
+	        </form>
+	    </div>
+	</div>
+</body>

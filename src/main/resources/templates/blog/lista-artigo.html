@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt"
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{blog/layout/base}">
+
+<body>
+
+<div class="col-md-8" layout:fragment="content">
+	<th:block th:each="artigo: ${artigos}">
+	  <div class="post-wrap">
+	     <div class="media post">
+	         <div class="media-left">
+	             <a th:href="@{/artigo/{slug}(slug=${artigo.slug})}">
+	               <img class="media-object" th:src="${artigo.thumbnail}" width="120" height="150" alt="thumbnail">
+	             </a>
+	         </div>
+	         <div class="media-body">
+	             <p th:text="${#temporals.format(artigo.dataPublicacao, 'd / MM / yyyy')}" class="small"></p>
+	             <a th:href="@{/artigo/{slug}(slug=${artigo.slug})}">
+	                 <h5 class="media-heading"><strong><span th:text="${#strings.capitalize(artigo.titulo)}"></span></strong></h5>
+	             </a>
+	             <div th:utext="${#strings.abbreviate(artigo.texto, 300)}"></div>
+	         </div>
+	     </div>
+	     
+	     <div class="post-meta">
+	         <ul class="list-inline metas pull-left">
+	             <li><a href="#">Por <span th:text="${artigo.usuario.nome}"></span></a></li>
+	             <li><a href="#">1 Comentário</a></li>
+	             <li><a th:href="@{/artigo/{slug}(slug=${artigo.slug})}">Ler mais...</a></li>
+	         </ul>
+	         <ul class="list-inline meta-detail pull-right">
+	             <li><a href="#"><i class="fa fa-heart"></i></a> 50</li>
+	             <li><i class="fa fa-eye"></i> 110</li>
+	         </ul>
+	     </div>
+	 </div>
+	</th:block>
+	   
+	<div class="text-left">
+	    <nav>
+	        <ul class="pagination">
+	            <li>
+	              <a href="#" aria-label="Previous">
+	                <span aria-hidden="true">Anterior</span>
+	              </a>
+	            </li>
+	            <li><a href="#" class="active">1</a></li>
+	            <li><a href="#">2</a></li>
+	            <li><a href="#">3</a></li>
+	            <li><a href="#">4</a></li>
+	            <li>
+	              <a href="#" aria-label="Next">
+	                <span aria-hidden="true">Próximo</span>
+	              </a>
+	            </li>
+	        </ul>
+	    </nav>
+	</div>
+</div>
+
+</body>

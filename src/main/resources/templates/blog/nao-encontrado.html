@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt"
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{blog/layout/base}">
+
+<body>
+    <div id="tf-contact" class="contact" layout:fragment="content">
+        <div class="container">
+            <div class="section-header">
+                <h2>404 <span class="highlight"><strong>NÃO ENCONTRADO</strong></span></h2>
+                <h5><em>Oops! Não conseguimos encontrar o artigo desejado.</em></h5>
+                <div class="fancy"><span><img th:src="@{/blog/images/404-not-found.png}" width="70" height="45" alt="404"></span></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt"
+xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{consultoria/layout/base}"
+th:with="paginaAtual='artigo'">
+
+<body>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper" layout:fragment="content">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+    	LISTAGEM DE ARTIGOS
+    	<!-- small>Optional description</small -->
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+      <li class="active">Here</li>
+    </ol>
+  </section>
+
+	<!-- Main content -->
+	<section class="content container-fluid">
+	<div class="box box-default">
+		<!--div class="box-header">
+			<h5>HEADER</h5>
+		</div-->
+		<div class="box-body table-responsive">
+			<table class="table table-hover">
+				<thead>
+			          <tr>
+			            <th>Título</th>
+			            <th>Data de publicação</th>
+			            <th>Categoria</th>
+			            <th>Autor</th>
+			            <th width="10%"></th>
+			          </tr>
+		         </thead>
+	          	<tbody>
+			        <tr th:each="artigo, i: ${artigosPagina.content}">
+			            <td><a th:href="@{/artigo/{slug}(slug=${artigo.slug})}" target="_blank"><span th:text="${artigo.titulo}"></span></a></td>
+			            <td th:text="${#temporals.format(artigo.dataPublicacao, 'd / MM / yyyy')}" />
+			            <td th:text="${artigo.categoria.nome}"></td>
+			            <td th:text="${artigo.usuario.nome}"></td>
+			            <td>
+			          		<a class="btn" role="button"  th:href="@{/artigo/{slug}(slug=${artigo.slug})}" target="_blank" title="Visualizar"><i class="fa fa-eye"></i></a>
+			            	<a class="btn" role="button" th:href="@{/artigo/editar/{id}(id=${artigo.id})}" title="Editar"><i class="fa fa-edit"></i></a>
+			            	<a class="btn" role="button" title="Remover"><i class="fa fa-times"></i></a>
+			            </td>
+			        </tr>
+    			</tbody>
+	        </table>
+		</div>
+		<div class="box-footer clearfix">
+          <ul class="pagination pagination-sm" style="margin-left: 45%;">
+            <!--li><a href="#">&laquo;</a></li-->
+            <li th:if="${artigosPagina.totalPages > 0}" class="pagination" th:each="pagina : ${numeroPaginas}">
+            	<a
+			    th:href="@{/artigo/listagem(tamanho=${artigosPagina.size}, pagina=${pagina})}"
+			    th:text=${pagina}
+			    th:class="${pagina == artigosPagina.number + 1} ? active">
+			    </a>
+            </li>
+            <!--li><a href="#">&raquo;</a></li-->
+          </ul>
+        </div>
+	</div>
+	</section>
+	<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+</body>
+</html>

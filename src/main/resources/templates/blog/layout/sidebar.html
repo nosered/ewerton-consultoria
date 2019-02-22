@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt"
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+
+<div class="col-md-4" th:fragment="sidebar">
+    <div class="sidebar">
+
+        <div class="widget search">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Buscar por...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><span class="fa fa-search"></span></button>
+                </span>
+            </div>
+        </div>
+
+        <div class="widget categories">
+            <h4 class="text-uppercase">Categorias</h4>
+            <ul class="list-unstyled bullet-lists">
+                <li><a href="#"><span class="fa fa-circle"></span> Esporte</a></li>
+                <li><a href="#"><span class="fa fa-circle"></span> Saúde</a></li>
+                <li><a href="#"><span class="fa fa-circle"></span> Alimentação</a></li>
+                <li><a href="#"><span class="fa fa-circle"></span> Musculação</a></li>
+            </ul>
+        </div>
+
+        <div class="widget archive">
+            <h4 class="text-uppercase">Arquivos</h4>
+            <ul class="list-unstyled bullet-lists">
+                <li><a href="#"><span class="fa fa-circle"></span> Março 2018</a></li>
+                <li><a href="#"><span class="fa fa-circle"></span> Fevereiro 2018</a></li>
+                <li><a href="#"><span class="fa fa-circle"></span> Janeiro 2018</a></li>
+                <li><a href="#"><span class="fa fa-circle"></span> Dezembro 2018</a></li>
+                <li><a href="#"><span class="fa fa-circle"></span> Novembro 2018</a></li>
+                <li><a href="#"><span class="fa fa-circle"></span> Outubro 2018</a></li>
+                <li><a href="#"><span class="fa fa-circle"></span> Setembro 2018</a></li>
+            </ul>
+        </div>
+
+        <div class="widget post-tab">
+            <div role="tabpanel">
+
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#popular" aria-controls="popular" role="tab" data-toggle="tab">Popular</a></li><!-- Popular Posts -->
+                    <li role="presentation"><a href="#recent" aria-controls="recent" role="tab" data-toggle="tab">Recente</a></li><!-- Recent Posts -->
+                    <li role="presentation"><a href="#comment" aria-controls="comment" role="tab" data-toggle="tab">Comentários</a></li><!-- Comments -->
+                </ul>
+
+                <div class="tab-content"> 
+                    <div role="tabpanel" class="tab-pane active" id="popular">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">
+                                <p class="small">27 / 01 / 2018</p>
+                                <h5 class="media-heading"><strong>Condimentum aliquam, mollit magna velit nec et scelerisque</strong></h5>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <p class="small">14/ 01 / 2018</p>
+                                <h5 class="media-heading"><strong>Pellentesque vehicula. Eget sed, dapibus. Vel et scelerisque donec et</strong></h5>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <p class="small">12 / 02 / 2018</p>
+                                <h5 class="media-heading"><strong>Et scelerisque vestibulum. Condimentum aliquam, mollit magna velit nec</strong></h5>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <p class="small">14 / 01 / 2018</p>
+                                <h5 class="media-heading"><strong>Scelerisque vestibulum Condimentum aliquam, mollit magna velit nec</strong></h5>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <p class="small">19 / 12 / 2018</p>
+                                <h5 class="media-heading"><strong>Vel donec et scelerisque vestibulum. Condimentum aliquam, mollit magna velit nec</strong></h5>
+                            </a>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="recent">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">
+                                <p class="small">14 / 01 / 2018</p>
+                                <h5 class="media-heading"><strong>Vel donec et scelerisque vestibulum. Condimentum aliquam, mollit magna velit nec</strong></h5>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <p class="small">14 / 01 / 2018</p>
+                                <h5 class="media-heading"><strong>Vel donec et scelerisque vestibulum. Condimentum aliquam, mollit magna velit nec</strong></h5>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <p class="small">14 / 01 / 2018</p>
+                                <h5 class="media-heading"><strong>Vel donec et scelerisque vestibulum. Condimentum aliquam, mollit magna velit nec</strong></h5>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <p class="small">14 / 01 / 2015</p>
+                                <h5 class="media-heading"><strong>Vel donec et scelerisque vestibulum. Condimentum aliquam, mollit magna velit nec</strong></h5>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <p class="small">14 / 01 / 2015</p>
+                                <h5 class="media-heading"><strong>Vel donec et scelerisque vestibulum. Condimentum aliquam, mollit magna velit nec</strong></h5>
+                            </a>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="comment">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">
+                                <p class="small">Ms. Lijoy <strong> Comentou</strong>:</p>
+                                <h5 class="media-heading"><strong>Vel donec et scelerisque vestibulum. Condimentum aliquam, mollit magna velit nec</strong></h5>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <p class="small">Coder Expert <strong> Comentou</strong>:</p>
+                                <h5 class="media-heading"><strong>Pellentesque vehicula. Eget sed, dapibus. Vel et scelerisque donec et</strong></h5>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <p class="small">Cool Design <strong> Comentou</strong>:</p>
+                                <h5 class="media-heading"><strong>Et scelerisque vestibulum. Condimentum aliquam, mollit magna velit nec</strong></h5>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <p class="small">Mark Szuckerburg <strong> Comentou</strong>:</p>
+                                <h5 class="media-heading"><strong>Scelerisque vestibulum Condimentum aliquam, mollit magna velit nec</strong></h5>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <p class="small">Ruji <strong> Comentou</strong>:</p>
+                                <h5 class="media-heading"><strong>Vel donec et scelerisque vestibulum. Condimentum aliquam, mollit magna velit nec</strong></h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

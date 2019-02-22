@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt"
+xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{consultoria/layout/base}"
+th:with="paginaAtual='artigo'">
+
+<body>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper" layout:fragment="content">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+    	NOVO ARTIGO
+    	<!-- small>Optional description</small -->
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+      <li class="active">Here</li>
+    </ol>
+  </section>
+
+	<!-- Main content -->
+	<section class="content container-fluid">
+	<div class="box box-default">
+		<!--div class="box-header">
+			<h5>HEADER</h5>
+		</div-->
+		<div class="box-body">
+			<form th:action="@{/artigo/criar}" th:object="${artigo}" th:method="POST" enctype="multipart/form-data">
+				<input type="hidden" th:field="*{id}" />
+				<input type="hidden" th:field="*{thumbnail}" />
+				<div class="row">
+					<div class="form-group col-md-7">
+						<div class="row">
+							<div class="col-md-12">
+								<label for="titulo">Título</label>
+								<input id="titulo" type="text" th:field="*{titulo}" class="form-control"/>
+							</div>
+							<div class="form-group col-md-12">
+								<label for="textEditor">Texto</label>
+								<textarea id="textEditor" th:field="*{texto}" th:value="*{texto}"></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="form-group col-md-5">
+						<label for="file-chooser" class="control-label">Thumbnail</label>
+						<input id="file-chooser" type="file" name="upload"/>
+						<img id="img-preview" th:src="${#strings.isEmpty(artigo.thumbnail)} ? @{/consultoria/images/placeholder.jpg} : ${artigo.thumbnail}" width="640" height="480" class="img-responsive img-rounded" alt="imagem-640x480">
+						<!--img id="img-preview" th:src="${#strings.defaultString(artigo.thumbnail, @consultoria/images/placeholder.jpg)}" width="640" height="480" class="img-responsive img-rounded" alt="imagem-640x480"-->
+					</div>
+				</div>
+				<input type="submit" value="Publicar Artigo" />
+			</form>
+		</div>
+	</div>
+	</section>
+	<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<th:block layout:fragment="custom-js">
+<!-- tinyMCE -->
+<script th:src="@{/consultoria/vendors/tinymce/tinymce.min.js}"></script>
+<!-- Image Upload Preview -->
+<script th:src="@{/consultoria/javascript/custom-image-preview.js}"></script>
+
+</th:block>
+</body>
+</html>
