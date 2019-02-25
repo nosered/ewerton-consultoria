@@ -11,6 +11,7 @@
 	<groupId>br.eti.esabreu</groupId>
 	<artifactId>ewerton-consultoria</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>ewerton-consultoria</name>
 	<description>Sistema WEB para gerenciamento de consultoria esportiva</description>
 
