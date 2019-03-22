@@ -50,7 +50,7 @@ public class ArtigoController {
 		try {
 			if(!upload.isEmpty()) {
 				String destFileName = UUID.randomUUID() + ".png";
-				File destFile = new File(System.getProperty("user.home") + File.separator + destFileName);
+				File destFile = new File(System.getProperty("user.home") + File.separator + "images" + File.separator + destFileName);
 				upload.transferTo(destFile);
 				String thumbnailUrl = request.getScheme().concat("://").concat(request.getServerName()).concat(":").concat(request.getServerPort()+"").concat("/images/").concat(destFileName);
 				artigo.setThumbnail(thumbnailUrl);
